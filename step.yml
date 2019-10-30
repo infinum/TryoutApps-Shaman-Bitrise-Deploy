@@ -55,6 +55,13 @@ toolkit:
     entry_file: step.sh
 
 inputs:
+  - shaman_token:
+    opts:
+      title: "Token used for auth with TryoutApps"
+      description: |
+        Get your user token from https://[TENANT].tryoutapps.com/users/me 
+      is_required: true
+      is_sensitive: true
   - environment_name:
     opts:
       title: "Deploy environment name"

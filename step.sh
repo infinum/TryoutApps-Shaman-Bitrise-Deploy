@@ -5,6 +5,7 @@ echo "This is the value specified for the input 'example_step_input': ${example_
 
 gem install shaman_cli
 shaman -v
+export SHAMAN_TOKEN=${shaman_token}
 PARAMS=""${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}""
 
 if [[ "${changelog_message}" ]]; then
