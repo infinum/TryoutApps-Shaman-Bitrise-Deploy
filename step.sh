@@ -3,15 +3,15 @@ set -ex
 
 echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 
-# gem install shaman_cli
+gem install shaman_cli
 shaman -v
-PARAMS="${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}"
+PARAMS=""${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}""
 
-if [[ ! "${changelog_message}" ]]; then
-	CHANGELOG="${changelog_message}"
+if [[ "${changelog_message}" ]]; then
+	PARAMS="$PARAMS -m "${changelog_message}""
 fi
 
-shaman deploy "$PARAMS$CHANGELOG"
+shaman deploy $PARAMS
 
 #
 # --- Exit codes:
