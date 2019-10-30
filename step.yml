@@ -12,7 +12,8 @@ title: |-
 summary: |
   Uploads apps to Infinum's TryoutApps
 description: |
-  Uploads apps to Infinum's TryoutApps
+  Uploads apps to Infinum's TryoutApps using shaman deploy script.
+  Only one build at the time can be uploaded.
 website: https://github.com/jabou/bitrise-step-tryoutapps-shaman
 source_code_url: https://github.com/jabou/bitrise-step-tryoutapps-shaman
 support_url: https://github.com/jabou/bitrise-step-tryoutapps-shaman/issues
@@ -44,44 +45,49 @@ host_os_tags:
 type_tags:
   - deploy
 
-is_requires_admin_user: true
+is_requires_admin_user: false
 is_always_run: false
 is_skippable: false
 run_if: ""
 
 deps:
-  brew:
-  - name: git
-  - name: wget
-  apt_get:
-  - name: git
-  - name: wget
-
+  gem:
+  - name: shaman_cli
 
 toolkit:
   bash:
     entry_file: step.sh
 
-
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - environment_name:
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
+      title: "Deploy environment name"
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
-      is_expand: true
+        Name defined in shaman.yml
       is_required: true
-      value_options: []
-
-outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - shaman_config_path: "./.shaman.yml"
     opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
+      title: "Path to the shaman file"
       description: |
-        Description of this output.
+        By default, this value is set to './.shaman.yml'
+      is_required: true
+  - file_path: "${BITRISE_IPA_PATH}"
+    opts:
+      title: "Path to the file that have to be uploaded"
+      description: |
+        By default, this value is set to BITRISE_IPA_PATH
+      is_required: true
+  - changelog_message: "${TAG_MESSAGE}"
+    opts:
+      title: "Message used for setting the changelog"
+      description: |
+        By default, this message is taken from the TAG_MESSAGE.
+        If you don't use tag message or tag deploy approach, you can
+        remove this message from the deploy step.
+      is_required: false
 
-        Can be Markdown formatted text.
+
+
+
+
+
