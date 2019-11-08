@@ -14,9 +14,9 @@ summary: |
 description: |
   Uploads apps to Infinum's TryoutApps using shaman deploy script.
   Only one build at the time can be uploaded.
-website: https://github.com/jabou/bitrise-step-tryoutapps-shaman
-source_code_url: https://github.com/jabou/bitrise-step-tryoutapps-shaman
-support_url: https://github.com/jabou/bitrise-step-tryoutapps-shaman/issues
+website: https://github.com/infinum/TryoutApps-Shaman-Bitrise-Deploy
+source_code_url: https://github.com/infinum/TryoutApps-Shaman-Bitrise-Deploy
+support_url: https://github.com/infinum/TryoutApps-Shaman-Bitrise-Deploy/issues
 host_os_tags:
   - osx-10.10
   - ubuntu-16.04
