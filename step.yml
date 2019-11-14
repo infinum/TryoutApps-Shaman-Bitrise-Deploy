@@ -74,18 +74,21 @@ inputs:
   - shaman_config_path: "./.shaman.yml"
     opts:
       title: "Path to the shaman file"
+      category: Config
       description: |
         By default, this value is set to './.shaman.yml'
       is_required: true
   - file_path: "${BITRISE_IPA_PATH}"
     opts:
       title: "Path to the file that have to be uploaded"
+      category: Config
       description: |
         By default, this value is set to BITRISE_IPA_PATH
       is_required: true
   - changelog_message: "${TAG_MESSAGE}"
     opts:
       title: "Message used for setting the changelog"
+      category: Config
       description: |
         By default, this message is taken from the TAG_MESSAGE.
         If you don't use tag message or tag deploy approach, you can
@@ -94,6 +97,7 @@ inputs:
   - release_name:
     opts:
       title: "Release name (ZIP platform only)"
+      category: Config
       description: |
         Release name used only if ZIP is uploaded to TryoutApps.
       is_required: false
