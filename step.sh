@@ -1,18 +1,22 @@
 #!/bin/bash
 set -ex
 
-echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
-
 gem install shaman_cli
 shaman -v
 export SHAMAN_TOKEN=${shaman_token}
-PARAMS=""${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}""
 
 if [[ "${changelog_message}" ]]; then
-	PARAMS="$PARAMS -m "${changelog_message}""
+	CHANGELOG_MESSAGE="${changelog_message}"
+else
+	CHANGELOG_MESSAGE=" "
 fi
 
-shaman deploy $PARAMS
+if [[ "${release_name}" ]]; then
+	REL_PARAM="-n"
+	REL_PARAM_NAME="${release_name}"
+fi
+
+shaman deploy "${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}" -m "${CHANGELOG_MESSAGE}" $REL_PARAM "${REL_PARAM_NAME}"
 
 #
 # --- Exit codes:

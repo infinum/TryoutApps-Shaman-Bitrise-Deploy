@@ -88,6 +88,12 @@ inputs:
         If you don't use tag message or tag deploy approach, you can
         remove this message from the deploy step.
       is_required: false
+  - release_name:
+    opts:
+      title: "Release name (ZIP platform only)"
+      description: |
+        Release name used only if ZIP is uploaded to TryoutApps.
+      is_required: false
 
 
 

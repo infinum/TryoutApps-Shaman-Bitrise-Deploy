@@ -40,13 +40,14 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - shaman_token: infnweoinfwi32r23jr2309j
-        - environment_name: Staging
-        - file_path: ./test.txt
+        - shaman_token: 50e955fe3f8061c32ffe543ca0d99a40f6af11nn
+        - environment_name: ZipUpload
+        - file_path: ./test.zip
         - changelog_message: "New build!"
+        - release_name: "1.0 a"
         - content: |
             #!/bin/bash
-            echo "shaman may error with missing .shaman.yml or test.txt file. You can add this (empty) files inside of _tmp folder. Uploading will fail as this test is not connected to TryoutApps"
+            echo "shaman may error with missing .shaman.yml or test.zip file. You can add this (empty) files inside of _tmp folder. Uploading will fail as this test is not connected to TryoutApps"
 
 
   # ----------------------------------------------------------------
