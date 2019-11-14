@@ -44,6 +44,9 @@ host_os_tags:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 type_tags:
   - deploy
+  - ios
+  - macos
+  - android
 
 is_requires_admin_user: false
 is_always_run: false
