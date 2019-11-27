@@ -30,23 +30,16 @@ host_os_tags:
 # You can find more information about project type tags in the Step Development Guideline:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 #
-# project_type_tags:
-#   - ios
-#   - macos
-#   - android
-#   - xamarin
-#   - react-native
-#   - cordova
-#   - ionic
+project_type_tags:
+  - ios
+  - macos
+  - android
 
 # Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
 # You can find more information about type tags in the Step Development Guideline:
 # https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
 type_tags:
   - deploy
-  - ios
-  - macos
-  - android
 
 is_requires_admin_user: false
 is_always_run: false
@@ -83,16 +76,16 @@ inputs:
       title: "Path to the file that have to be uploaded"
       category: Config
       description: |
-        By default, this value is set to BITRISE_IPA_PATH
+        By default, this value is set to "${BITRISE_IPA_PATH}"
       is_required: true
-  - changelog_message: "${TAG_MESSAGE}"
+  - changelog_message:
     opts:
       title: "Message used for setting the changelog"
       category: Config
       description: |
-        By default, this message is taken from the TAG_MESSAGE.
-        If you don't use tag message or tag deploy approach, you can
-        remove this message from the deploy step.
+        If you are using tag based deployment, you can store changelog in "${TAG_MESSAGE}" global variable and then use it here.
+        
+        If you don't use tag message or tag deploy approach, you can remove this message from the deploy step.
       is_required: false
   - release_name:
     opts:
