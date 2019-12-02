@@ -67,16 +67,12 @@ inputs:
   - shaman_config_path: "./.shaman.yml"
     opts:
       title: "Path to the shaman file"
-      category: Config
       description: |
         By default, this value is set to './.shaman.yml'
       is_required: true
   - file_path: "${BITRISE_IPA_PATH}"
     opts:
       title: "Path to the file that have to be uploaded"
-      category: Config
-      description: |
-        By default, this value is set to "${BITRISE_IPA_PATH}"
       is_required: true
   - changelog_message:
     opts:
