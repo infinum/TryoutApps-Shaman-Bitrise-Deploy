@@ -11,12 +11,17 @@ else
 	CHANGELOG_MESSAGE=" "
 fi
 
+if [[ "${file_path}" ]]; then
+	FILE_PATH="-f"
+	FILE_PATH_NAME="${file_path}"
+fi
+
 if [[ "${release_name}" ]]; then
 	REL_PARAM="-n"
 	REL_PARAM_NAME="${release_name}"
 fi
 
-shaman deploy "${environment_name}" -t -c "${shaman_config_path}" -f "${file_path}" -m "${CHANGELOG_MESSAGE}" $REL_PARAM "${REL_PARAM_NAME}"
+shaman deploy "${environment_name}" -t -c "${shaman_config_path}" $FILE_PATH "${FILE_PATH_NAME}" -m "${CHANGELOG_MESSAGE}" $REL_PARAM "${REL_PARAM_NAME}"
 
 #
 # --- Exit codes:
