@@ -34,6 +34,7 @@ project_type_tags:
   - ios
   - macos
   - android
+  - flutter
 
 # Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
 # You can find more information about type tags in the Step Development Guideline:
@@ -53,35 +54,36 @@ toolkit:
 inputs:
   - shaman_token:
     opts:
-      title: "Token used for auth with TryoutApps"
+      title: "Token used for authentication with TryoutApps"
       description: |
         Get your user token from https://[TENANT].tryoutapps.com/users/me 
       is_required: true
       is_sensitive: true
+  - shaman_config_path: "./.shaman.yml"
+    opts:
+      title: "Path to the shaman.yml file"
+      description: |
+        By default, this value is set to './.shaman.yml'
+      is_required: true
   - environment_name:
     opts:
       title: "Deploy environment name"
       description: |
         Name defined in shaman.yml
       is_required: true
-  - shaman_config_path: "./.shaman.yml"
+  - file_path:
     opts:
-      title: "Path to the shaman file"
-      description: |
-        By default, this value is set to './.shaman.yml'
-      is_required: true
-  - file_path: "${BITRISE_IPA_PATH}"
-    opts:
+      category: Config
       title: "Path to the file that have to be uploaded"
-      is_required: true
+      description: |
+        By default, this value is read from shaman.yml file. If you need to use a custom path, you can set it here.
+      is_required: false
   - changelog_message:
     opts:
-      title: "Message used for setting the changelog"
+      title: "Message used for setting the change log"
       category: Config
       description: |
-        If you are using tag based deployment, you can store changelog in "${TAG_MESSAGE}" global variable and then use it here.
-        
-        If you don't use tag message or tag deploy approach, you can remove this message from the deploy step.
+        A message that can be used as a changelog, you can store value from tag/commit/script in a custom global variable (e.g. "${TAG_MESSAGE}") and then use it here.       
       is_required: false
   - release_name:
     opts:
