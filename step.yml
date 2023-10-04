@@ -74,7 +74,7 @@ inputs:
   - file_path:
     opts:
       category: Config
-      title: "Path to the file that have to be uploaded"
+      title: "Path to the file that is to be uploaded"
       description: |
         By default, this value is read from shaman.yml file. If you need to use a custom path, you can set it here.
       is_required: false
