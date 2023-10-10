@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+asdf install ruby 3.2
+
 gem install shaman_cli
 shaman -v
 export SHAMAN_TOKEN=${shaman_token}
