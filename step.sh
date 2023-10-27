@@ -1,7 +1,8 @@
 #!/bin/bash
 set -ex
 
-asdf install ruby 3.2
+asdf install ruby 3.2.2
+asdf global ruby 3.2.2
 
 gem install shaman_cli
 shaman -v
