@@ -1,8 +1,10 @@
 #!/bin/bash
 set -ex
 
-asdf install ruby 3.2.2
-asdf global ruby 3.2.2
+if [[ "${ruby_version}" ]]; then
+	asdf install ruby "${ruby_version}"
+	asdf global ruby "${ruby_version}"
+fi
 
 gem install shaman_cli
 shaman -v
