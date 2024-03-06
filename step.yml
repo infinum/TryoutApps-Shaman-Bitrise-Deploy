@@ -92,9 +92,10 @@ inputs:
       description: |
         Release name used only if ZIP is uploaded to TryoutApps.
       is_required: false
-
-
-
-
-
-
+  - ruby_version:
+    opts:
+      title: "Ruby version"
+      category: Config
+      description: |
+        When set, a specific Ruby version will be installed on the machine. Otherwise, the default version from the machine will be used.
+      is_required: false
