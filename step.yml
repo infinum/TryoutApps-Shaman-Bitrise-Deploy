@@ -92,10 +92,10 @@ inputs:
       description: |
         Release name used only if ZIP is uploaded to TryoutApps.
       is_required: false
-  - ruby_version:
+  - gemfile_path:
     opts:
-      title: "Ruby version"
+      title: "Path to a local Gemfile"
       category: Config
       description: |
-        When set, a specific Ruby version will be installed on the machine. Otherwise, the default version from the machine will be used.
+        When set, it specifies a local Gemfile used for installing Shaman. If not set, a default Gemfile is generated.
       is_required: false
