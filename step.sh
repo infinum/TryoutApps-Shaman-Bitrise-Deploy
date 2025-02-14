@@ -5,8 +5,7 @@ set -ex
 if [[ -f "${gemfile_path}" ]]; then
   echo "Gemfile already exists at ${gemfile_path}"
 
-  # Install gems using the existing Gemfile
-  BUNDLE_GEMFILE="${gemfile_path}" bundle install
+  BUNDLE_GEMFILE="${gemfile_path}"
 else
   # Create a new Gemfile with the specified content
   cat <<EOF > Gemfile
@@ -16,10 +15,10 @@ gem 'shaman_cli'
 EOF
 
   echo "Gemfile created!"
-
-  # Install gems using the new Gemfile
-  bundle install
 fi
+
+# Install gems using the new Gemfile
+bundle install
 
 shaman -v
 export SHAMAN_TOKEN=${shaman_token}
