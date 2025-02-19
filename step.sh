@@ -1,12 +1,25 @@
 #!/bin/bash
 set -ex
 
-if [[ "${ruby_version}" ]]; then
-	asdf install ruby "${ruby_version}"
-	asdf global ruby "${ruby_version}"
+# Check if the Gemfile already exists
+if [[ -f "${gemfile_path}" ]]; then
+  echo "Gemfile already exists at ${gemfile_path}"
+
+  BUNDLE_GEMFILE="${gemfile_path}"
+else
+  # Create a new Gemfile with the specified content
+  cat <<EOF > Gemfile
+source "https://rubygems.org"
+
+gem 'shaman_cli'
+EOF
+
+  echo "Gemfile created!"
 fi
 
-gem install shaman_cli
+# Install gems using the new Gemfile
+bundle install
+
 shaman -v
 export SHAMAN_TOKEN=${shaman_token}
 
